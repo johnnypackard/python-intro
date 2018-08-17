@@ -1,4 +1,5 @@
 # Introduction to Python
+[Johnny Python's Flying Circus](https://github.com/johnnypackard/python-intro)
 
 ## About
 Python is a programming language that lets you work more quickly and integrate your systems more effectively.
