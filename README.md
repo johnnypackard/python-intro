@@ -6,7 +6,7 @@ Python is a programming language that lets you work more quickly and integrate y
 
 Learn more at: https://www.python.org/
 
-Fun fact! The language is named after the BBC show “Monty Python’s Flying Circus” and has nothing to do with reptiles. Making references to Monty Python skits in documentation is not only allowed, it is encouraged!
+*Fun fact! The language is named after the BBC show “Monty Python’s Flying Circus” and has nothing to do with reptiles. Making references to Monty Python skits in documentation is not only allowed, it is encouraged!*
 
 ## Setup
 1. Install Homebrew by opening `Terminal` and run
@@ -55,13 +55,13 @@ print(msg)
 * Use the Python: Start REPL command to opens a REPL terminal for the currently selected Python interpreter. In the REPL you can then enter and run lines of code one at a time.
 
 ## Use Flask to output to the DOM
-Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions. And before you ask: It's BSD licensed!
+"Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions. And before you ask: It's BSD licensed!"
 You can learn more about [Flask here](http://flask.pocoo.org/).
 
 #Install Flask
 On your file system, create a project folder for this tutorial, such as hello_flask.
 
-In that folder, use the following command (as appropriate to your computer) to create a virtual environment named env based on your current interpreter:
+In that folder, use the following command (as appropriate to your computer) to create a virtual environment named "env" based on your current interpreter:
 
 # macOS/Linux
 # You may need to run sudo apt-get install python3-venv first
@@ -71,11 +71,11 @@ In that folder, use the following command (as appropriate to your computer) to c
 `py -3 -m venv env`
 Note: Use a stock Python installation when running the above commands. If you use python.exe from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
 
-Open the project folder in VS Code by running code ., or by running VS Code and using the File > Open Folder command.
+1. Open the project folder in VS Code by running code ., or by running VS Code and using the File > Open Folder command.
 
-In VS Code, open the Command Palette (View > Command Palette or (⇧⌘P)). Then select the Python: Select Interpreter command:
+2. In VS Code, open the Command Palette (View > Command Palette or (⇧⌘P)). Then select the Python: Select Interpreter command:
 
-Opening the Command Palette in VS Code
+#Opening the Command Palette in VS Code
 
 The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see Configuring Python environments). From the list, select your virtual environment:
 
@@ -89,7 +89,7 @@ The selected environment appears on the left side of the VS Code status bar, and
 
 Selected environment showing in the VS Code status bar
 
-Install Flask in the virtual environment by running one of the following commands:
+#Install Flask in the virtual environment by running one of the following commands:
 
 # macOS/Linux
 `pip3 install flask`
@@ -98,48 +98,54 @@ Install Flask in the virtual environment by running one of the following command
 `pip install flask`
 You now have an self-contained environment ready for writing Flask code.
 
-Create and run a minimal Flask app
-In VS Code, create a new file in your project folder named app.py using either File > New from the menu, pressing Ctrl+N, or using the new file icon in the Explorer View (shown below).
+#Create and run a minimal Flask app
+1. In VS Code, create a new file in your project folder named app.py using either File > New from the menu, pressing Ctrl+N, or using the new file icon in the Explorer View (shown below).
 
-New file icon in Explorer View
+2. New file icon in Explorer View
 
-In app.py, add code to import Flask and create an instance of the Flask object. If you type the code below (instead of using copy-paste), you can observe VS Code's IntelliSense and auto-completions:
+3. In app.py, add code to import Flask and create an instance of the Flask object. If you type the code below (instead of using copy-paste), you can observe VS Code's IntelliSense and auto-completions:
 
 ```
 from flask import Flask
 app = Flask(__name__)
 ```
 
-Also in app.py, add a function that returns content, in this case a simple string, and use Flask's app.route decorator to map the URL route / to that function:
+4. Also in app.py, add a function that returns content, in this case a simple string, and use Flask's app.route decorator to map the URL route / to that function:
 
+```
 @app.route("/")
 def home():
     return 'Hello, Flask!'
-Tip: you can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
+```
 
-Save the app.py file (⌘S).
+*Tip: you can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.*
 
-In the terminal, run the app by entering python3 -m flask run (MacOS/Linux) or python -m flask run (Windows), which runs the Flask development server. The development server looks for app.py by default. When you run Flask, you should see output similar to the following:
+5. Save the app.py file (⌘S).
 
+In the terminal, run the app by entering `python3 -m flask run` (MacOS/Linux) or `python -m flask run` (Windows), which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
+
+```
 (env) D:\py\\hello_flask>python -m flask run
  * Environment: production
    WARNING: Do not use the development server in a production environment.
    Use a production WSGI server instead.
  * Debug mode: off
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
-If you see an error that the Flask module cannot be found, make sure you've run pip3 install flask (MacOS/Linux) or pip install flask (Windows) in your virtual environment as described at the end of the previous section.
+```
 
-Also, if you want to run the development server on a different IP address or port, use the host and port command line arguments, as with --host=0.0.0.0 --port=80.
+*If you see an error that the Flask module cannot be found, make sure you've run pip3 install flask (MacOS/Linux) or pip install flask (Windows) in your virtual environment as described at the end of the previous section.*
 
-To open your default browser to the rendered page, Ctrl+click the http://127.0.0.1:5000/ URL in the terminal.
+Also, if you want to run the development server on a different IP address or port, use the host and port command line arguments, as with `--host=0.0.0.0 --port=80.`
 
-The running app in a browser
+To open your default browser to the rendered page, Ctrl+click the [http://127.0.0.1:5000/](http://127.0.0.1:5000/) URL in the terminal.
+
+#The running app in a browser
 
 Observe that when you visit a URL like /, a message appears in the debug terminal showing the HTTP request:
 
 Stop the app by using `Ctrl+C` in the terminal.
 
-Tip: If you want to use a different filename than app.py, such as program.py, define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file app.py. For more information, see Flask command line interface.
+*Tip: If you want to use a different filename than app.py, such as program.py, define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file app.py. For more information, see Flask command line interface.*
 
 
 ## Next steps
